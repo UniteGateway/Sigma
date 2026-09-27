@@ -1,0 +1,6 @@
+{
+  "name": "Sigma Greentech Solutions | Integrated Renewable Energy Platform",
+  "description": "Sigma Greentech Solutions is a leading renewable-energy platform developing, delivering and managing integrated clean-energy projects across Wind, Solar, BESS, and Hybrid power systems.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
