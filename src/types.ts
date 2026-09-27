@@ -27,10 +27,11 @@ export interface ProjectItem {
   id: string;
   title: string;
   category: 'Wind' | 'Solar' | 'BESS' | 'Hybrid' | 'Commercial & Industrial';
-  capacity: string; // e.g. "340 MW" or "120 MW / 240 MWh"
+  capacity: string; // e.g. "180 MW Hybrid"
   location: string;
   country: string;
-  year: string;
+  year: string; // Target COD e.g. "Target 2026-2027"
+  status: string; // e.g. "In Pipeline - Permitting & Grid Interconnection"
   image: string;
   description: string;
   highlights: string[];

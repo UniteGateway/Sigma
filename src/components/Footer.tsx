@@ -203,7 +203,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenRfp }) => {
         {/* Bottom Sub-Footer Bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div className="flex items-center gap-2">
-            <span>© {new Date().getFullYear()} Sigma Greentech Solutions Ltd. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} Sigma Greentech Solutions. All rights reserved.</span>
             <span>·</span>
             <span>Powering the Future with Clean Energy</span>
           </div>

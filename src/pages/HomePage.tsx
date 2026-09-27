@@ -654,23 +654,26 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenRfp }) => 
         </div>
       </section>
 
-      {/* 7. FEATURED PROJECTS SHOWCASE */}
+      {/* 7. 500 MW PROJECT PIPELINE SHOWCASE */}
       <section className="py-20 lg:py-28 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-14">
             <div>
               <span className="text-xs font-bold text-emerald-600 uppercase tracking-widest block mb-2">
-                Demonstrated Track Record
+                500 MW Project Pipeline
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-display tracking-tight text-balance">
-                Landmark Clean Energy Installations
+                Active Clean Energy Projects Under Development
               </h2>
+              <p className="mt-3 text-sm text-slate-600 max-w-2xl leading-relaxed">
+                Sigma Greentech Solutions is actively engineering and advancing a 500 MW project pipeline across Wind, Bifacial Solar, Battery Storage, and Hybrid complexes—developed with startup agility and delivered through our 20+ years consortium partners.
+              </p>
             </div>
             <button
               onClick={() => onNavigate('projects')}
-              className="mt-4 md:mt-0 px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-lg transition-colors inline-flex items-center gap-1.5"
+              className="mt-4 md:mt-0 px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-lg transition-colors inline-flex items-center gap-1.5 shrink-0"
             >
-              <span>Explore All Projects</span>
+              <span>Explore 500 MW Pipeline</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -693,28 +696,35 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenRfp }) => 
                       {proj.category}
                     </div>
                     <div className="absolute bottom-3 right-3 px-2.5 py-1 bg-slate-950/80 backdrop-blur-md rounded-md text-[11px] font-mono font-bold text-white">
-                      {proj.capacity.split('+')[0]}
+                      {proj.capacity.split('(')[0]}
                     </div>
                   </div>
 
                   <div className="p-6">
-                    <div className="text-xs text-slate-500 mb-1">
-                      {proj.location} · COD {proj.year}
+                    <div className="flex items-center justify-between text-xs text-slate-500 mb-1">
+                      <span>{proj.location}</span>
+                      <span className="font-semibold text-emerald-700">{proj.year}</span>
                     </div>
                     <h3 className="text-lg font-bold text-slate-900 font-display group-hover:text-emerald-700 transition-colors">
                       {proj.title}
                     </h3>
-                    <p className="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed">
+
+                    <div className="mt-2 inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200/80">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      <span>{proj.status}</span>
+                    </div>
+
+                    <p className="text-xs text-slate-600 mt-3 line-clamp-2 leading-relaxed">
                       {proj.description}
                     </p>
 
                     <div className="mt-4 pt-4 border-t border-slate-200/80 space-y-1.5 text-[11px] text-slate-600">
                       <div className="flex justify-between">
-                        <span className="text-slate-500">Annual CO2 Offset:</span>
+                        <span className="text-slate-500">Projected CO2 Offset:</span>
                         <span className="font-semibold text-slate-900">{proj.co2OffsetPerYear}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-slate-500">Power Offtaker:</span>
+                        <span className="text-slate-500">Target Offtaker:</span>
                         <span className="font-semibold text-slate-900 truncate max-w-[180px]">{proj.offtaker}</span>
                       </div>
                     </div>
@@ -726,7 +736,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenRfp }) => 
                     onClick={() => onNavigate('projects')}
                     className="w-full py-2 bg-white hover:bg-emerald-50 text-slate-800 hover:text-emerald-700 border border-slate-200 hover:border-emerald-300 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1"
                   >
-                    <span>View Technical Dossier</span>
+                    <span>View Project Pipeline Details</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>

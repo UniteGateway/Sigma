@@ -31,14 +31,36 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate, onOpenRf
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-3">
-              Project Portfolio
+              Active Project Pipeline · 500 MW Under Development
             </span>
             <h1 className="text-4xl sm:text-6xl font-extrabold font-display tracking-tight text-white leading-tight">
-              Proven Multi-Gigawatt Clean Energy Assets
+              500 MW Clean Energy Projects in Active Pipeline
             </h1>
             <p className="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed">
-              Explore our track record across utility-scale hybrid complexes, gigawatt solar parks, ridge wind farms, and high-rate battery energy storage systems engineered for maximum availability.
+              Explore Sigma Greentech Solutions' active 500 MW project pipeline across Wind, Bifacial Solar, Battery Energy Storage (BESS), and Hybrid power systems. Each asset is engineered with technology-agnostic agility and delivered through our execution consortium's 20+ years of proven utility construction experience.
             </p>
+
+            {/* Pipeline Category Summary Pills */}
+            <div className="mt-6 flex flex-wrap gap-2 text-xs font-mono">
+              <span className="px-3 py-1 bg-emerald-950/80 text-emerald-300 rounded-lg border border-emerald-800">
+                Total Pipeline: 500 MW
+              </span>
+              <span className="px-3 py-1 bg-slate-900 text-slate-300 rounded-lg border border-slate-800">
+                Hybrid: 180 MW
+              </span>
+              <span className="px-3 py-1 bg-slate-900 text-slate-300 rounded-lg border border-slate-800">
+                Solar: 140 MWp
+              </span>
+              <span className="px-3 py-1 bg-slate-900 text-slate-300 rounded-lg border border-slate-800">
+                Wind: 90 MW
+              </span>
+              <span className="px-3 py-1 bg-slate-900 text-slate-300 rounded-lg border border-slate-800">
+                BESS: 50 MW / 100 MWh
+              </span>
+              <span className="px-3 py-1 bg-slate-900 text-slate-300 rounded-lg border border-slate-800">
+                Industrial Captive: 40 MW
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -111,29 +133,37 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate, onOpenRf
                     </div>
 
                     <div className="p-6">
-                      <div className="flex items-center gap-2 text-xs text-slate-500 mb-1.5">
-                        <MapPin className="w-3.5 h-3.5 text-slate-400" />
-                        <span>{proj.location}</span>
-                        <span>·</span>
-                        <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                        <span>COD {proj.year}</span>
+                      <div className="flex items-center justify-between text-xs text-slate-500 mb-1.5">
+                        <div className="flex items-center gap-1.5">
+                          <MapPin className="w-3.5 h-3.5 text-slate-400" />
+                          <span>{proj.location}</span>
+                        </div>
+                        <div className="flex items-center gap-1 font-semibold text-emerald-700">
+                          <Calendar className="w-3.5 h-3.5" />
+                          <span>{proj.year}</span>
+                        </div>
                       </div>
 
                       <h3 className="text-lg font-bold text-slate-900 font-display group-hover:text-emerald-700 transition-colors">
                         {proj.title}
                       </h3>
 
-                      <p className="text-xs text-slate-600 mt-2 line-clamp-3 leading-relaxed">
+                      <div className="mt-2 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        <span>{proj.status}</span>
+                      </div>
+
+                      <p className="text-xs text-slate-600 mt-3 line-clamp-3 leading-relaxed">
                         {proj.description}
                       </p>
 
                       <div className="mt-4 pt-4 border-t border-slate-100 space-y-1.5 text-[11px] text-slate-600">
                         <div className="flex justify-between">
-                          <span className="text-slate-500">Annual CO2 Offset:</span>
+                          <span className="text-slate-500">Projected CO2 Offset:</span>
                           <span className="font-semibold text-slate-900">{proj.co2OffsetPerYear}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-slate-500">Offtaker:</span>
+                          <span className="text-slate-500">Target Offtaker:</span>
                           <span className="font-semibold text-slate-900 truncate max-w-[170px]">{proj.offtaker}</span>
                         </div>
                       </div>
@@ -145,7 +175,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate, onOpenRf
                       onClick={() => setActiveModalProject(proj)}
                       className="w-full py-2.5 bg-slate-50 hover:bg-emerald-50 text-slate-800 hover:text-emerald-700 border border-slate-200 hover:border-emerald-300 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1.5"
                     >
-                      <span>View Engineering Dossier</span>
+                      <span>View Pipeline Blueprint</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
@@ -177,14 +207,19 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate, onOpenRf
               </button>
 
               <div className="absolute bottom-6 left-6 right-6">
-                <span className="text-xs font-mono font-semibold text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded border border-emerald-800">
-                  {activeModalProject.category} Infrastructure
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-bold font-display text-white mt-2">
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <span className="text-xs font-mono font-semibold text-emerald-400 bg-emerald-950/80 px-2.5 py-0.5 rounded border border-emerald-800">
+                    {activeModalProject.category} Infrastructure
+                  </span>
+                  <span className="text-xs font-mono font-semibold text-sky-300 bg-sky-950/80 px-2.5 py-0.5 rounded border border-sky-800">
+                    {activeModalProject.status}
+                  </span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-bold font-display text-white">
                   {activeModalProject.title}
                 </h3>
                 <div className="text-xs text-slate-300 mt-1">
-                  {activeModalProject.location} · Commercial Operation: {activeModalProject.year}
+                  {activeModalProject.location} · {activeModalProject.year}
                 </div>
               </div>
             </div>
@@ -193,7 +228,7 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate, onOpenRf
             <div className="p-6 sm:p-8 overflow-y-auto space-y-6">
               <div>
                 <h4 className="text-xs font-bold text-emerald-700 uppercase tracking-widest mb-1.5">
-                  Executive Engineering Overview
+                  Pipeline Engineering Overview
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                   {activeModalProject.description}
@@ -203,19 +238,19 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onNavigate, onOpenRf
               {/* Key Specs Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50 p-4 rounded-2xl border border-slate-200">
                 <div>
-                  <span className="text-[11px] text-slate-500 block">Total Capacity</span>
+                  <span className="text-[11px] text-slate-500 block">Planned Capacity</span>
                   <span className="text-xs sm:text-sm font-bold text-slate-900">{activeModalProject.capacity}</span>
                 </div>
                 <div>
-                  <span className="text-[11px] text-slate-500 block">CO2 Avoided</span>
+                  <span className="text-[11px] text-slate-500 block">Projected CO2 Offset</span>
                   <span className="text-xs sm:text-sm font-bold text-emerald-700">{activeModalProject.co2OffsetPerYear}</span>
                 </div>
                 <div>
-                  <span className="text-[11px] text-slate-500 block">Energy Reach</span>
+                  <span className="text-[11px] text-slate-500 block">Projected Reach</span>
                   <span className="text-xs sm:text-sm font-bold text-slate-900">{activeModalProject.homesPowered}</span>
                 </div>
                 <div>
-                  <span className="text-[11px] text-slate-500 block">PPA Counterparty</span>
+                  <span className="text-[11px] text-slate-500 block">Target Offtaker</span>
                   <span className="text-xs sm:text-sm font-bold text-slate-900 truncate block">{activeModalProject.offtaker}</span>
                 </div>
               </div>

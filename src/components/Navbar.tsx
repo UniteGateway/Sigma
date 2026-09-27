@@ -162,7 +162,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   : 'text-slate-300 hover:text-white'
               }`}
             >
-              Projects
+              500 MW Pipeline
             </button>
 
             <button
@@ -337,7 +337,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => handleNavClick('projects')}
               className={`p-2.5 rounded-lg text-left ${currentPage === 'projects' ? 'bg-emerald-950 text-emerald-300 font-semibold' : 'text-slate-300 hover:bg-slate-900'}`}
             >
-              Projects
+              500 MW Pipeline
             </button>
             <button
               onClick={() => handleNavClick('technology')}

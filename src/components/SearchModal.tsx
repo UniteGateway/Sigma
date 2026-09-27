@@ -60,10 +60,10 @@ const SEARCH_ITEMS: SearchItem[] = [
     icon: <Briefcase className="w-4 h-4 text-indigo-500" />,
   },
   {
-    title: 'Project Portfolio & Track Record',
-    category: 'Projects',
+    title: '500 MW Project Pipeline Under Development',
+    category: 'Pipeline',
     page: 'projects',
-    snippet: 'Explore our multi-gigawatt installations including Kutch Hybrid, Thar Solar, and Western Ghats Wind.',
+    snippet: 'Explore our 500 MW active clean energy pipeline across Wind, Solar, BESS, and Hybrid complexes.',
     icon: <Zap className="w-4 h-4 text-emerald-500" />,
   },
   {
